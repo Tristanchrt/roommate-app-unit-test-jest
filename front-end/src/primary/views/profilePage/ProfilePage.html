@@ -1,0 +1,31 @@
+<div class="profilePage" v-if="user != null">
+  <div class="cont">
+    <div class="avatar" :style="{ backgroundImage: `url(${profilePicture != null ? profilePicture : ''})` }" @click="triggerInputFile()"></div>
+    <input type="file" ref="file" v-on:change="changePicture" accept="image/png, image/jpeg" style="display:none"/>
+    <div class="firstName">{{user.firstName}}</div>
+    <div class="lastName">{{user.lastName}}</div>
+    <CustomProfileFilterVue text="Funny" icon="🔥" :editable="true" id="someId"/>
+    <StarsRatingVue v-if="user.rating" :rating="user.rating"/>
+    <textarea class="description" id="input" @input="setTextAreaHeight()" v-model="description"></textarea>
+    <div class="flexCont">
+      <div class="element">
+        <span><b>22</b></span>
+        <span>Matchs</span>
+      </div>
+      <div class="bar"></div>
+      <div class="element">
+        <span><b>23</b></span>
+        <span>Notes</span>
+      </div>
+    </div>
+    <div class="button" @click="modifyFilters()">
+      <div class="background" :style="{width: '60%'}"></div>
+      <i class="fas fa-sort-amount-up-alt"></i>
+      <div>
+        <div><b>Change my filters</b></div>
+        <div>Profile completed at 60%</div>
+      </div>
+    </div>
+  </div>
+  <div class="cont"></div>
+</div>

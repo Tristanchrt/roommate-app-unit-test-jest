@@ -1,0 +1,24 @@
+<transition name="fade" appear>
+  <div class="modal">
+    <div class="background"></div>
+    <div class="container">
+      <div class="top">
+        <span @click="scrollTop()" class="CustomProfileFilterVue"><CustomProfileFilterVue :text="newInput" :icon="newIcon" id="someRandomId"/></span>
+        <div class="buttons">
+          <i class="far fa-save" @click="save()"></i>
+          <i class="fas fa-times" @click="close()"></i>
+        </div>  
+      </div>
+      <section>
+        <div class="title">Content</div>
+        <input placeholder="Drôle" v-model="newInput"/>
+      </section>
+      <section>
+        <div class="title">Icon</div>
+        <div class="container">
+          <div class="icon" v-for="element in icons" :key="element" @click='selectIcon(element)' :class="{active: element == newIcon}">{{element}}</div>
+        </div>
+      </section>
+    </div>
+  </div>
+</transition>

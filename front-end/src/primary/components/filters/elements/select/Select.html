@@ -1,0 +1,18 @@
+<div class="selectFilter filter">
+  <div class="title">{{title}}</div>
+  <div class="container">
+    <select id="select" v-on:change="onChange($event)">
+      <option value="" disabled selected>Rechercher : {{title}}...</option>
+      <option v-for="(option, index) in options" :key="index">
+        {{ option }}
+      </option>
+    </select>
+    <i class="fas fa-search"></i>    
+  </div>
+  <div class="selectedValues">
+    <div class="value" v-for="(value, index) in values" :key="index">
+      {{value}}
+      <i class="fas fa-times" @click="remove(value)"></i>
+    </div>
+  </div>
+</div>

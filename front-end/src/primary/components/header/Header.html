@@ -1,0 +1,37 @@
+<div id="header">
+  <div class="cont search">
+    <router-link to="/"><div class="logo"></div></router-link>
+    <div class="search">
+      <i class="fas fa-search"></i>
+      <input/>
+    </div>
+  </div>
+  <div class="cont">
+    <router-link :to="{name: 'Explore'}">
+      <div class="icon">
+        <i class="fas fa-user-friends"></i>
+        <div class="notification"></div>
+      </div>
+    </router-link>
+    <div class="icon">
+      <i class="far fa-calendar"></i>
+    </div>
+    <router-link :to="{name: 'Chat'}">
+      <div class="icon">
+        <i class="far fa-comment-alt"></i>
+        <div class="notification"></div>
+      </div>
+    </router-link>
+  </div>
+    <div class="cont profile">
+      <router-link :to="{name: 'Profile'}">
+        <div class="picture"></div>
+      </router-link>
+      <router-link :to="{name: 'Profile'}">
+        <div class="name">Franck</div>
+      </router-link>
+      <div class="more">
+        <i class="fas fa-caret-down"></i>
+      </div>
+    </div>
+</div>

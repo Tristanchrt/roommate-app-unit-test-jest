@@ -1,0 +1,26 @@
+<div class="chatPage">
+  <div class="container" v-if="!loading">
+    <div class="conversations" :class="[device]">
+      <div class="title">Discussions</div>
+      <ConversationButtonVue v-for="(conversation, index) in conversations" :key="index"
+        class="conversationButton"
+        :isOpened="currentConversation && currentConversation.id == conversation.id"
+        :conversation="conversation"  
+        :user="user"
+        :size="(device == 'tablet' ? 'mini' : 'regular')"
+        @click.native="selectConversation(conversation.id)"
+      />
+    </div>
+    <ConversationVue v-on:send-message="sendMessage($event)" :conversation="currentConversation" :user="user" v-if="currentConversation"/>
+    <div class="noConversation" v-if="!currentConversation">
+      <img
+        :src="require('@/primary/views/chatPage/assets/Message.high.png')"
+        class="image"
+      />
+      <div>aucune conversation selectionnée</div>
+    </div>
+  </div>
+  <div class="loading" v-if="loading">
+    <i class="fas fa-circle-notch fa-spin"></i>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="filtersPage" v-if="user">
+  <div class="leftContainer">
+      <div class="container">
+        <div class="title1 uppercase">hey {{user.firstName}},</div>
+        <div class="subtitle1 uppercase">à propos de vos</div>
+        <div class="title2 uppercase">habitudes 🪀</div>
+        <div class="categories">
+          <div class="categorie" 
+          :class="{'selected': categorie.selected}"
+          v-for="(categorie,index) in categories"
+          :key="categorie.name"
+          @click="selectCategorie(index)"
+          >{{categorie.name}}</div>
+        </div>
+      </div>
+  </div>
+  <div class="rightContainer">
+    <component 
+      :is="selectedCategorie.component" 
+      v-if="selectedCategorie.component != null" 
+      v-bind="{user: user}"
+    />
+  </div>
+</div>

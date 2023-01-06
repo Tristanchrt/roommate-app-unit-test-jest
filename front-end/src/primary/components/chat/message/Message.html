@@ -1,0 +1,11 @@
+<div class="message">
+  <div class="container" :class="{right: !isReceived}">
+    <div class="image"  :style="{ backgroundImage: `url('${senderPicture}')`}"></div>
+    <div class="cont">
+      <div class="name">{{sender()}}</div>
+      <div class="content" v-if="message.type != 'image'">{{message.content}}</div>
+      <div class="content image" v-if="message.type == 'image' && state != 'error'"><img :src="imageURL"/></div>
+      <div class="content error" v-if="message.type == 'image' && state == 'error'">🌊 Fichier non trouvé</div>
+    </div>
+  </div>
+</div>

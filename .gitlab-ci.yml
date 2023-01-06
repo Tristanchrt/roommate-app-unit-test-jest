@@ -1,0 +1,32 @@
+stages:
+  - test
+  - build
+
+# name of the test
+unit tests:
+  # node version used
+  image: node:12.19.0
+  stage: test
+  script:
+    - cd front-end
+    # equivalent to npm install
+    - npm ci
+    # lint before testing
+    - npm run lint
+    # test all files ( be sure to have set coverageThreshold in your jest.config file)
+    - npx jest --no-cache --coverage
+
+build:
+  image: node:12.19.0
+  stage: build
+  script:
+    - cd front-end
+    - npm ci
+    - npm run lint
+    - npm run build
+  # get the build folder (will be used in deploy)
+  artifacts:
+    when: on_success
+    paths:
+      - front-end/dist
+    expire_in: never

@@ -1,0 +1,10 @@
+<div id="app">
+  <div class="content" v-if="!loading">
+    <router-view name="header"/>
+    <router-view />  
+  </div>
+  <div class="loading" v-if="loading">
+    <i class="fas fa-circle-notch fa-spin"></i>
+  </div>
+  <component :is="modal.component" v-if="modal != null" v-bind="modal.props"/>
+</div>

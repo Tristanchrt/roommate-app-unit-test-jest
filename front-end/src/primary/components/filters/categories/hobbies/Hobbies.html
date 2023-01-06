@@ -1,0 +1,50 @@
+<div class="hobbiesComponent">
+  <NumberFilterVue 
+    title="Chambres"
+    content="Nombre de chambres à proposer :"
+    :min="1"
+    :max="10"
+    :step="1"
+    :initialValue="findFilter('ROOMS_NUMBER')"
+    @change="updateFilter('ROOMS_NUMBER', $event.type, $event.value)"
+  />
+  <NumberFilterVue 
+  title="Colocataires"
+  content="Nombre de colocataires :"
+  :min="1"
+  :max="10"
+  :step="1"
+  :initialValue="findFilter('ROOMS_NUMBER')"
+  @change="updateFilter('ROOMS_NUMBER', $event.type, $event.value)"
+  />
+  <ElementSelectorVue 
+  title="Genre"
+  :options="['male', 'female']"
+  :initialValue="findFilter('SEX')"
+  @change="updateFilter('SEX', $event.type, $event.value)"
+  />
+  <ElementSelectorVue 
+  title="Genre"
+  :multiple="false"
+  :options="['male', 'female']"
+  />
+  <SelectFilterVue 
+  title="Localisation"
+  :initialValue="findFilter('LOCATION')"
+  :options="['LYON1','LYON2','LYON3','LYON4','LYON5','LYON6','LYON7','LYON2','LYON1','LYON2']"
+  @change="updateFilter('LOCATION', $event.type, $event.value)"
+  />
+  <SliderFilterVue 
+  title="Age"
+  :range="{min:0,max:100}"
+  :step="1"
+  :initialValue="findFilter('AGE')"
+  @change="updateFilter('AGE', $event.type, $event.value)"  
+  />
+  <ImageSelectorVue
+  title="Origine"
+  :options="[{ image: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg' , value: 'france'}, { image: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg' , value: 'espagne' }]"
+  :initialValue="findFilter('LANGUAGE')"
+  @change="updateFilter('LANGUAGE', $event.type, $event.value)"
+  />
+</div>

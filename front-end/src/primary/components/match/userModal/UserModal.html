@@ -1,0 +1,38 @@
+<transition name="fade" appear>
+  <div class="modal">
+    <div class="background" @click="close()"></div>
+    <div class="container">
+      <div class="info">
+        <div class="left">
+          <div class="close"><i class="fas fa-times" @click="close()"></i></div>
+          <div>
+            <div class="section-title">Recherche un logement à</div>
+            <div class="content">Lyon</div>
+          </div>
+          <div>
+            <div class="section-title">Age</div>
+            <div class="content">{{age}}</div>
+          </div>
+          <div>
+            <div class="section-title">Nom</div>
+            <div class="content">{{user.name}}</div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="image" :style="{ backgroundImage: `url('${user.picture}')` }"></div>
+          <div class="review">
+            <StarsRatingVue  v-if="user.rating" :rating="user.rating"/>
+          </div>
+          <div class="description">
+            <div class="section-title">A propos de moi</div>
+            <div class="content">{{user.description}}</div>
+          </div>
+        </div>
+      </div>
+      <form class="input_container" v-on:submit.prevent.stop="sendMessage"">
+        <textarea placeholder="Entrer votre message..." v-model="input" @input="setTextAreaHeight" id="input"></textarea>
+        <i class="far fa-paper-plane" @click="sendMessage"></i>  
+      </form>
+    </div>
+  </div>
+</transition>

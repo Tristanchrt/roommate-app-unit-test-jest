@@ -1,0 +1,12 @@
+<div class="imageSelector filter">
+  <div class="title">{{title}}</div>
+  <div class="images">
+    <div class="image" v-for="(image, index) in options" 
+    :key="index" 
+    @click="toggleImage(image.value, $event)" 
+    :style="{ 'backgroundImage': 'url('+image.image+')' }"
+    :class="{'selected': values.includes(image.value)}"
+    >
+    </div>  
+  </div>
+</div>

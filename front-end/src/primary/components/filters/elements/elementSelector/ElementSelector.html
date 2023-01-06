@@ -1,0 +1,13 @@
+<div class="elementSelector filter">
+  <div class="title">{{title}}</div>
+  <div class="values">
+    <div 
+      class="value" 
+      v-for="(value,index) in options"
+      @click="toggleSelect(value)"
+      :class="{'selected': isSelected(value)}"
+    >
+      {{value}}
+    </div>
+  </div>
+</div>

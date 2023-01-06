@@ -1,0 +1,5 @@
+<div class="customProfile" @click="edit()" :style="{'cursor': editable ? 'pointer': 'initial'}">
+  <div class="icon">{{icon}}</div>
+  <div class="text">{{text}}</div>
+  <i class="fas fa-times" @click="(e) => {e.stopPropagation(); deleteElement();}" v-if="editable"></i>
+</div>

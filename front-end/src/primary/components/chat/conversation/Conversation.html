@@ -1,0 +1,21 @@
+<div class="conversation">
+  <div class="messagesContainer" v-if="!loading">
+    <div class="blank" v-if="conversation.messages.length == 0"></div>
+    <ConversationHeaderVue :user="user" :conversation="conversation" />
+    <div class="messages" id="conversation" v-if="conversation.messages.length > 0">
+      <MessageVue v-for="(message, index) in conversation.messages" :key="index"
+        :message="message"
+        :isReceived="message.sender.id != user.id"/>
+    </div>
+    <form class="input_container" v-on:submit.prevent.stop="sendMessage"">
+      <i class="fas fa-image" @click="selectFile()"></i>
+      <input type="file" ref="file" v-on:change="sendFile" accept="image/png, image/jpeg" style="display:none"/>
+      <textarea placeholder="Entrer votre message..." v-model="input" @input="setTextAreaHeight" id="input"></textarea>
+      <i class="far fa-paper-plane" @click="sendMessage"></i>  
+    </form>
+  </div>
+
+  <div class="loading" v-if="loading">
+    <i class="fas fa-circle-notch fa-spin"></i>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="numberFilter filter">
+  <div class="title">{{title}}</div>
+  <div class="content">
+    <div class="text">{{content}}</div>
+    <input 
+    ref="input" type="number" 
+    :min="min" :max="max" 
+    :step="(step ? step : '')" 
+    v-model="value"
+    />  
+  </div>
+  </div>

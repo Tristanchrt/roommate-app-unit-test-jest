@@ -1,0 +1,13 @@
+<div class="signUpPage">
+  <BackgroundSVG class="background"/>
+  <div class="title">Inscription</div>
+  <div class="container">
+    <input type="email" v-model="email" placeholder="email">
+    <input type="name" v-model="firstName" placeholder="prénom">
+    <input type="name" v-model="lastName" placeholder="nom">
+    <input type="date" v-model="birthdate">
+    <input type="password" v-model="password" placeholder="mot de passe">
+    <input type="password" v-model="confirmPassword" placeholder="confirmez le mot de passe">
+    <div @click="signUp()" class="signButton" v-if="canSignUp"><div>s'inscrire</div></div>  
+  </div>
+</div>
