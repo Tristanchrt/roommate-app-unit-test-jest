@@ -1,7 +1,7 @@
 # Roommate-app
 
 VueJS & Express app to find the perfect roommate
-
+Unit test are implemented with jest
 
 ## Run front-end
 
